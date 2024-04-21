@@ -21,7 +21,7 @@ function Login(){
     const navigate = useNavigate();
     const signin = async () => {
         await userClient.signin(credentials);
-        navigate("../../profile");
+        navigate("../home");
     };
 
     const handleSubmit = (e) => {
