@@ -34,6 +34,14 @@ function ShoppingCart() {
     const findUserById = async (id) => {
         const user = await userClient.findUserById(id);
         setAccount(user);
+        const items = await Promise.all(
+            user.cart.map(async (i) => {
+                const item = await findItemById(i);
+                console.log(item);
+                return item;
+            })
+        );
+        setCartItems(items.filter((item) => item !== null));
     };
 
 
@@ -50,8 +58,9 @@ function ShoppingCart() {
 
     useEffect(() => {
         const fetchData = async () => {
-            if (id) {
-                await findUserById(id);
+            const account = await userClient.account();
+            if (account._id) {
+                await findUserById(account._id);
             } else {
                 await fetchAccount();
             }

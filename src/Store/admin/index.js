@@ -107,9 +107,9 @@ function Admin() {
                                 <button className="btn btn-secondary me-1"onClick={() => updateUser()}>
                                     <BsCheck /> Update
                                 </button>
-                                <button className="btn btn-success me-1" onClick={() => createUser()}>
+                                {/* <button className="btn btn-success me-1" onClick={() => createUser()}>
                                     <BsPlus /> Create
-                                </button>
+                                </button> */}
                             </td>
                         </tr>
                         </thead>
